@@ -11,7 +11,8 @@ class TestIpProcess(unittest.TestCase):
         # check that it returns something
         self.assertIsNotNone(ip, '"ip" should exist')
         # check that it returns the correct string
-        self.assertEqual(prefix + ',' + '169.45.108.128/29', ip, 'Wrong string for "Ip" it output: {}'.format(ip))
+        self.assertEqual(prefix + ',' + '169.45.108.128/29', ip,
+                         'Wrong string for "Ip" it output: {}'.format(ip))
 
 
 if __name__ == '__main__':
