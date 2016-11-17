@@ -3,10 +3,12 @@ import shlex
 
 
 """
-If there are multiple service you need this information for, this scrip is easily expandable 
-and reusable by adding sys argv for command and prefix.
+If there are multiple service you need this information
+for, this scrip is easily expandable and reusable by
+adding sys argv for command and prefix.
 
-This script gets IP addresses to whitelist then formats and sends them to STDOUT.
+This script gets IP addresses to whitelist then formats
+and sends them to STDOUT.
 
 Expected output format:
     Prefix + , + IP
@@ -18,8 +20,11 @@ Example:
 Prefix = "tropo"  # This will proceed the IP address
 Command = "nslookup -q=TXT _netblocks.tropo.com 8.8.8.8"
 
+
 def get_ips(command):
-    p = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(shlex.split(command),
+                         stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE)
     ips, err = p.communicate()
     if ips:
         return ips
@@ -27,9 +32,10 @@ def get_ips(command):
         print "standard error of subprocess:"
         print err
 
+
 def clean_ip(line, prefix):
     # rearanged line processing to work cross platform
-    ip = line[line.find('"') + 1:] 
+    ip = line[line.find('"') + 1:]
     ip = ip[:ip.find('"')]
     return prefix + "," + ip
 
