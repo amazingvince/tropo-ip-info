@@ -3,7 +3,7 @@ import shlex
 
 
 """
-If there are multiple service you need to this information for this scrip is easily expandable 
+If there are multiple service you need this information for, this scrip is easily expandable 
 and reusable by adding sys argv for command and prefix.
 
 This script gets IP addresses to whitelist then formats and sends them to STDOUT.
